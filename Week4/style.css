@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(218, 165, 32);
+}
+canvas {
+  display: block;
+}
+
+h1{
+  text-align: Center;
+}
+
+p{
+  text-align: Center;
+  
+}
