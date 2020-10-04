@@ -12,7 +12,7 @@ const detectionOptions = {
 function setup() {
   var cnv = createCanvas(360*2, 270*2);
   let x = (windowWidth - width) / 2;
-  let y = (windowHeight - height);
+  let y = (windowHeight - height)/2;
   cnv.position(x,y);
   cnv.parent('container');
   //frameRate(30);
@@ -55,7 +55,7 @@ function gotResults(err, result) {
   noFill();
   stroke(120);
   ellipse(width-r, height-r, r-5, r-5)
-  console.log(width-r, height-r, mouseX, mouseY);
+  //console.log(width-r, height-r, mouseX, mouseY);
   if (dist(mouseX, mouseY, width-r,height-r) < r){
     console.log('hi');
     if (mouseIsPressed){
