@@ -5,6 +5,7 @@ html, body {
 }
 canvas {
   display: block;
+  position: relative;
 }
 
 h1{
@@ -14,4 +15,9 @@ h1{
 p{
   text-align: Center;
   
+}
+div{
+  padding-top: auto;
+  margin-left: auto;
+  margin-right: auto;
 }

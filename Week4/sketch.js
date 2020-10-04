@@ -10,10 +10,11 @@ const detectionOptions = {
 };
 
 function setup() {
-  var cnv = createCanvas(360, 270);
+  var cnv = createCanvas(360*2, 270*2);
   let x = (windowWidth - width) / 2;
-  let y = (windowHeight - height) / 2;
-  cnv.position(x, y);
+  let y = (windowHeight - height);
+  cnv.position(x,y);
+  cnv.parent('container');
   //frameRate(30);
   if (displayWidth < 800) {
     video = createCapture({
