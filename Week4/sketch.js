@@ -2,6 +2,7 @@ let faceAPI;
 let video;
 let detections;
 let num = 0;
+let cnv;
 
 //by default, all options are true
 const detectionOptions = {
@@ -10,10 +11,10 @@ const detectionOptions = {
 };
 
 function setup() {
-  var cnv = createCanvas(360*2, 270*2);
+  cnv = createCanvas(360 * 2, 270 * 2);
   let x = (windowWidth - width) / 2;
-  let y = (windowHeight - height)/2;
-  cnv.position(x,y);
+  let y = (windowHeight - height) / 2;
+  cnv.position(x, y);
   cnv.parent('container');
   //frameRate(30);
   if (displayWidth < 800) {
@@ -51,17 +52,11 @@ function gotResults(err, result) {
   fill(255)
   noStroke()
   let r = 40
-  ellipse(width-r, height-r, r, r);
+  ellipse(width - r, height - r, r, r);
   noFill();
   stroke(120);
-  ellipse(width-r, height-r, r-5, r-5)
+  ellipse(width - r, height - r, r - 5, r - 5)
   //console.log(width-r, height-r, mouseX, mouseY);
-  if (dist(mouseX, mouseY, width-r,height-r) < r){
-    console.log('hi');
-    if (mouseIsPressed){
-      savePhoto();
-    }
-  }
   // button = createButton('Save Photo');
   // button.position(width, height);
   // button.mousePressed(savePhoto);
@@ -72,6 +67,13 @@ function gotResults(err, result) {
     }
   }
   faceAPI.detect(gotResults);
+  if (dist(mouseX, mouseY, width - r, height - r) < r) {
+    console.log('hi');
+    if (mouseIsPressed) {
+      savePhoto();
+      saveCanvas(cnv, "faceFound" + num, "png");
+    }
+  }
 }
 
 function drawLandmarks(detections) {
@@ -111,7 +113,6 @@ function drawPart(feature, closed) {
 }
 
 function savePhoto() {
-  save("faceFound" + num + ".png");
   num++
-  return false
+  return num
 }
